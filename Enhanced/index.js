@@ -43,7 +43,7 @@ function auth(req, res, next) {
   }
 }
 
-// --- Health check (useful for testing)
+// --- Health check 
 app.get("/", (req, res) => res.json({ ok: true }));
 
 // --- Register
@@ -92,7 +92,7 @@ app.post("/weights", auth, async (req, res) => {
     weight: Number(weight),
     unit: String(unit),
     date: String(date), // user-entered string
-    createdAt: new Date(), // server timestamp for sorting if you want
+    createdAt: new Date(), 
   };
 
   await weights.insertOne(doc);
@@ -142,4 +142,5 @@ async function start() {
 start().catch((err) => {
   console.error(err);
   process.exit(1);
+
 });
